@@ -144,7 +144,7 @@ trait OAuth2AuthenticationTrait {
         foreach ($this->attributes as $attr) {
             if (!($key=strtolower($this->config->getAttributeFor($attr))))
                 continue;
-            $attributes[$attr] = $result[$key] ?: null;
+            $attributes[$attr] = $result["user"][$key] ?: null;
         }
         // Use email as username if none is provided or vice versa!
         if (!isset($attributes['username']) && isset($attributes['email']))
